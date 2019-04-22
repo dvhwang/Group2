@@ -9,7 +9,8 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".ConsultingMain"></activity>
+        <activity android:name=".QuizMain"></activity>
+        <activity android:name=".ConsultingMain" />
         <activity android:name=".CareersMain" />
         <activity android:name=".FrameworkMain" />
         <activity android:name=".MainActivity">

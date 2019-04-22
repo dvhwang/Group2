@@ -47,7 +47,6 @@ public abstract class QuestionRoomDatabase extends RoomDatabase {
 
         @Override
         protected Void doInBackground(final Void... params){
-            mDao.deleteAll();
             Question q1= new Question(12222, "What is Porter's Five Model",
                     "XYZ", "zyxxx", "zysss", "zyxxx");
             mDao.insert(q1);

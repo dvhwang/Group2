@@ -1,96 +1,75 @@
 package com.example.group2;
 
-
-import android.support.annotation.NonNull;
-
-import androidx.room.Entity;
-import androidx.room.PrimaryKey;
-
-
-//Creating a Questions table
-@Entity
 public class Question {
-
-    //Creating a Questions constructor
-    public Question(int qId, String question, String correctAnswer, String incorrect1, String incorrect2, String incorrect3){
-        this.qId = qId;
-        this.question = question;
-        this.correctAnswer = correctAnswer;
-        this.incorrect1 = incorrect1;
-        this.incorrect2 = incorrect2;
-        this.incorrect3 = incorrect3;
-    }
-
-    //Introducing the table columns
-    @NonNull
-    @PrimaryKey
-    private int qId;
-
-    @NonNull
+    //Creating the variables
     private String question;
+    private String option1;
+    private String option2;
+    private String option3;
+    private String option4;
+    private int answerNo;
 
-    @NonNull
-    private String correctAnswer;
+    //Empty Constructor
+    public Question(){
 
-    @NonNull
-    private String incorrect1;
-
-    @NonNull
-    private String incorrect2;
-
-    @NonNull
-    private String incorrect3;
-
-    //Getter and Setter methods for the columns
-    @NonNull
-    public String getIncorrect1() {
-        return incorrect1;
     }
 
-    public void setIncorrect1(@NonNull String incorrect1) {
-        this.incorrect1 = incorrect1;
+    //Constructor
+    public Question(String question, String option1, String option2, String option3, String option4, int answerNo) {
+        this.question = question;
+        this.option1 = option1;
+        this.option2 = option2;
+        this.option3 = option3;
+        this.option4 = option4;
+        this.answerNo = answerNo;
     }
 
-    @NonNull
-    public String getIncorrect2() {
-        return incorrect2;
-    }
-
-    public void setIncorrect2(@NonNull String incorrect2) {
-        this.incorrect2 = incorrect2;
-    }
-
-    @NonNull
-    public String getIncorrect3() {
-        return incorrect3;
-    }
-
-    public void setIncorrect3(@NonNull String incorrect3) {
-        this.incorrect3 = incorrect3;
-    }
-
-
+    //Getter and Setter methods
     public String getQuestion() {
         return question;
     }
 
-    public void setQuestion(@NonNull String question) {
+    public void setQuestion(String question) {
         this.question = question;
     }
 
-    public int getqId() {
-        return qId;
+    public String getOption1() {
+        return option1;
     }
 
-    public void setqId(int qId) {
-        this.qId = qId;
+    public void setOption1(String option1) {
+        this.option1 = option1;
     }
 
-    public String getCorrectAnswer() {
-        return correctAnswer;
+    public String getOption2() {
+        return option2;
     }
 
-    public void setCorrectAnswer(@NonNull String correctAnswer) {
-        this.correctAnswer = correctAnswer;
+    public void setOption2(String option2) {
+        this.option2 = option2;
+    }
+
+    public String getOption3() {
+        return option3;
+    }
+
+    public void setOption3(String option3) {
+        this.option3 = option3;
+    }
+
+    public String getOption4() {
+        return option4;
+    }
+
+    public void setOption4(String option4) {
+        this.option4 = option4;
+    }
+
+    public int getAnswerNo() {
+        return answerNo;
+    }
+
+    public void setAnswerNo(int answerNo) {
+        this.answerNo = answerNo;
     }
 }
