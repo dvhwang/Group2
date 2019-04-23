@@ -5,6 +5,7 @@ import android.content.Context;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
+import android.util.Log;
 
 import com.example.group2.QuizContainer.*;
 
@@ -15,6 +16,7 @@ import java.util.List;
 public class DBHelper extends SQLiteOpenHelper {
     private static final String DATABASE_NAME = "Question.db";
     private static final int DATABASE_VERSION = 1;
+    private static final String TAG = "DBHelper";
 
     //Reference to the database itself
     private SQLiteDatabase db;
@@ -27,6 +29,7 @@ public class DBHelper extends SQLiteOpenHelper {
     @Override
     public void onCreate(SQLiteDatabase db) {
         this.db = db;
+        Log.d(TAG, "onCreate: Creating Database");
 
         //SQL query to create the table
         final String SQL_CREATE_QUESTION_TABLE = "CREATE TABLE " +
@@ -56,13 +59,62 @@ public class DBHelper extends SQLiteOpenHelper {
 
 
     private void makeQuestions(){
-        Question q1 = new Question();
+        Question q1 = new Question("What does MECE Stand For?", "Mutually Exhaustive, Collectively Exclusive", "Mutually Exclusive Collectively Entire", "Mutually Exclusive, Collectively Exhaustive", "Mutually Encyclopedic, Collectively Exhaustive", 3);
         insertQuestion(q1);
+
+        Question q2 = new Question("What are the two main categories within a profitability tree?", "Products and Wages", "Revenue and Costs", "Income and COGS", "Pricing and Distribution", 2);
+        insertQuestion(q2);
+
+        Question q3 = new Question("In a profitability tree, how many types of costs are there typically?", "2", "4", "3", "6", 1);
+        insertQuestion(q3);
+
+        Question q4= new Question("What is the typical use of Porter's Five Forces?", "Understanding how easy it is for suppliers to drive up prices", "Working out the intensity of competition in the market", "Looking at the performance of substitutes and competitors", "Assessing new markets and industries", 4);
+        insertQuestion(q4);
+
+        Question q5= new Question("What are the 4P's in the 4P's Marketing Mix Framework?", "Placards, Postal, Package, Pace", "Product, Price, Place, Promotion", "Pairs, Pack, Products, Place", "Package, Place, Postal, Pairs", 2);
+        insertQuestion(q5);
+
+        Question q6= new Question("What is an example of \"ME\" in MECE?", "Teenage Audience, Male Audience", "Online Customers, Male Customers", "Male Customers, Female Customers", "Online Customers, In-Store Customers", 3);
+        insertQuestion(q6);
+
+        Question q7 = new Question("What is an example of \"CE\" in MECE?", "Online Customers, In-Store Customers", "Teenage Customers, Female Customers", "In-Store Customers, Male Customers", "Retail Customers, Partner-Store Customers", 1);
+        insertQuestion(q7);
+
+        Question q8 = new Question("If given the question \"Who should Uber target when entering a new market?\", what would be an appropriate approach to the question?", "MECE", "Porter's Five Forces", "SWOT Analysis", "Demographic Tree", 4);
+        insertQuestion(q8);
+
+        Question q9 = new Question("Which of the following is an example of Porter's Five Forces?", "Competition", "Threat of Suppliers", "New Markets", "Marketing Power", 1);
+        insertQuestion(q9);
+
+        Question q10 = new Question("Why is MECE important?", "It helps you understand markets easily", "It makes looking at different customer segments easier", "It is a structured method of organising and breaking down problems", "Because Rick and Morty would be proud", 3);
+        insertQuestion(q10);
+
+        Question q11 = new Question("If you are asked to break down the question \"How does Company Y increase their profitability\"? with a profitability tree, what would be the two most appropriate categories?", "Increase in Revenue, Increase in Costs", "Decrease in Revenue, Decrease in Costs", "Decrease in Revenue, Increase in Costs", "Increase in Revenue, Decrease in Costs", 4);
+        insertQuestion(q11);
+
+        Question q12 = new Question("In a profitability tree, what are the two main types of cost?", "Varying Costs, Variable Costs", "Fixed Costs, Variable Costs", "Static Costs, Statistical Costs", "Costs, Costs per Customer", 2);
+        insertQuestion(q12);
+
+        Question q13 = new Question("In a typical profitability tree, what are the two main drivers of revenue?", "Pricing per unit, amount of customers", "Amount of Customers, Distribution of Customers", "Customer Segments sold to, Distribution Channel", "Pricing per unit, Volume of units sold", 4);
+        insertQuestion(q13);
+
+        Question q14 = new Question("When applying Porter's Five Forces, what would be some questions you might ask for Supplier Power?", "How easy is it for suppliers to drive up prices, and what is the size of each supplier?", "What is the perceived level of product differentiation?", "How many customers are there?", "What are the barriers to enter the market?", 1);
+        insertQuestion(q14);
+
+        Question q15 = new Question("When applying Porter's Five Forces, what would be some questions you might ask for New Entrants?", "How easy is it for buyers to drive prices down?", "Do your customers find substitutes easily? ", "Is it easy or difficult to enter the market, and what are the barriers of entry to the market?", "How easy is it for suppliers to drive up prices?", 3);
+        insertQuestion(q15);
+
+        Question q16 = new Question("When applying the 4P's Marketing Mix, what would be a key consideration for Product?", "Understanding the price of the product, and the amount paid by the customer", "Considering the functionality, appearance or quality of the product", "Geographical availability of the product to consumers", "Transportation of the product to consumers", 2);
+        insertQuestion(q16);
+
+        Question q17 = new Question("When applying the 4P's Marketing Mix, what would be a key consideration for Price?", "Looking at the appearance of products for consumers", "Focusing promotional materials on targeted customer segments", "Considering the amount of money paid by customers to purchase the product", "Looking at the brand and packaging of the products", 3);
+        insertQuestion(q17);
     }
 
     //Adds the questions into database
     private void insertQuestion(Question question){
         ContentValues content = new ContentValues();
+        Log.d(TAG, "Inserting the questions");
 
         //To set which values belongs to which column
         content.put(QuestionTable.COLUMN_QUESTION, question.getQuestion());
@@ -79,6 +131,7 @@ public class DBHelper extends SQLiteOpenHelper {
     //To retrieve the all the questions
     public List<Question> getAllQuestions(){
         List<Question> questionList = new ArrayList<>();
+        Log.d(TAG, "Retrieving the questions");
 
         //Open the database for reading
         db = getReadableDatabase();

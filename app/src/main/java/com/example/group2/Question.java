@@ -14,7 +14,7 @@ public class Question {
 
     }
 
-    //Constructor
+    //Question Constructor
     public Question(String question, String option1, String option2, String option3, String option4, int answerNo) {
         this.question = question;
         this.option1 = option1;

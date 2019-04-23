@@ -1,6 +1,6 @@
 package com.example.group2;
 
-//Class to hold the YoutubeAPIKey
+//Class to hold the Youtube API Key
 public class YoutubeAPIHolder {
 
     public YoutubeAPIHolder() { }

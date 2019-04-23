@@ -4,7 +4,6 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background=""
     android:padding="16dp"
     tools:context=".QuizMain">
 
@@ -106,8 +105,7 @@
         android:layout_marginEnd="0dp"
         android:layout_marginRight="0dp"
         android:layout_marginBottom="-102dp"
-        android:progress="80"
-        android:progressDrawable="@drawable/circleprogress" />
+        android:progress="80" />
 
     <TextView
         android:id="@+id/questionText"
@@ -131,7 +129,6 @@
         android:layout_below="@+id/radioGroup"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="29dp"
-        android:background="@drawable/rounded_button"
         android:text="Submit Answer"
         android:textSize="18sp" />
 

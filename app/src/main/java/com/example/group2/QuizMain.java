@@ -4,6 +4,7 @@ import android.content.res.ColorStateList;
 import android.graphics.Color;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.RadioButton;
@@ -15,6 +16,8 @@ import java.util.Collections;
 import java.util.List;
 
 public class QuizMain extends AppCompatActivity {
+    private static final String TAG = "Quiz Main Screen";
+
     //Initialising the widgets
     private TextView textViewScore;
     private TextView textViewQuestionCount;
@@ -40,6 +43,7 @@ public class QuizMain extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_quiz_main);
+        Log.d(TAG, "Initialising the Quiz Layout");
 
         //Assigning the widgets to its corresponding XML widget
         textViewScore = findViewById(R.id.scoreText);
@@ -80,6 +84,7 @@ public class QuizMain extends AppCompatActivity {
     }
 
     private void showNextQuestion(){
+        Log.d(TAG, "Deciding the Next Questions");
         //Setting the radio buttons to a default colour before it will be changed
         rb1.setTextColor(textColorDefaultRb);
         rb2.setTextColor(textColorDefaultRb);
@@ -110,6 +115,7 @@ public class QuizMain extends AppCompatActivity {
     }
 
     private void checkAnswer(){
+        Log.d(TAG, "Checking Answer");
         answered = true;
 
         RadioButton radioButtonSelected = findViewById(radioGroup.getCheckedRadioButtonId());
@@ -125,6 +131,7 @@ public class QuizMain extends AppCompatActivity {
     }
 
     private void showSolution(){
+        Log.d(TAG, "Showing Solution to the User");
         //Set the default colour of the radio button to red
         rb1.setTextColor(Color.RED);
         rb2.setTextColor(Color.RED);
