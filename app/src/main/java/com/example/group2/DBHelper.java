@@ -11,7 +11,6 @@ import com.example.group2.QuizContainer.*;
 import java.util.ArrayList;
 import java.util.List;
 
-import androidx.annotation.Nullable;
 
 public class DBHelper extends SQLiteOpenHelper {
     private static final String DATABASE_NAME = "Question.db";
