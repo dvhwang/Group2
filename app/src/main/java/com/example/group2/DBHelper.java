@@ -31,7 +31,7 @@ public class DBHelper extends SQLiteOpenHelper {
         this.db = db;
         Log.d(TAG, "onCreate: Creating Database");
 
-        //SQL query to create the table
+        //SQL query to create the Question table
         final String SQL_CREATE_QUESTION_TABLE = "CREATE TABLE " +
                 QuestionTable.TABLE_NAME + " ( " +
                 QuestionTable._ID + " INTEGER PRIMARY KEY AUTOINCREMENT, " +
@@ -43,8 +43,15 @@ public class DBHelper extends SQLiteOpenHelper {
                 QuestionTable.COLUMN_ANSWER_NO + "INTEGER " +
                 ")";
 
+        //SQL query to create the Result table
+        final String SQL_CREATE_RESULT_TABLE = "CREATE TABLE " +
+            ResultContainer.ResultTable.TABLE_NAME + " ( " +
+                ResultContainer.ResultTable._ID + " INTEGER PRIMARY KEY AUTOINCREMENT, "+
+                ResultContainer.ResultTable.COLUMN_RESULT + " INTEGER " + ")";
+
         //To execute the SQL query above
         db.execSQL(SQL_CREATE_QUESTION_TABLE);
+        db.execSQL(SQL_CREATE_RESULT_TABLE);
 
         //Invoke method which will have all the question
         makeQuestions();
@@ -157,5 +164,28 @@ public class DBHelper extends SQLiteOpenHelper {
         }
         cursor.close();
         return questionList;
+    }
+
+    public void insertHighScore(int score){
+        ContentValues content = new ContentValues();
+        Log.d(TAG, "Inserting High Scores");
+        content.put(ResultContainer.ResultTable.COLUMN_RESULT, score);
+    }
+
+    public List<Integer> getHighScores(){
+        List<Integer> scoreList = new ArrayList<>();
+        Log.d(TAG, "Retrieving High Scores");
+
+        db = getReadableDatabase();
+
+        //To return the top 3 results from the Result Table in descending order
+        Cursor cursor = db.rawQuery("SELECT MAX(result) FROM " + ResultContainer.ResultTable.TABLE_NAME + " ORDER BY " + ResultContainer.ResultTable.COLUMN_RESULT + " DESC LIMIT 3", null);
+
+        if (cursor.moveToFirst()){
+            do {
+                scoreList.add(cursor.getInt(cursor.getColumnIndex(ResultContainer.ResultTable.COLUMN_RESULT)));
+            } while(cursor.moveToNext());
+        }
+        return scoreList;
     }
 }

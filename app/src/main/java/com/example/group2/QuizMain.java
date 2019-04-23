@@ -1,5 +1,6 @@
 package com.example.group2;
 
+import android.content.Intent;
 import android.content.res.ColorStateList;
 import android.graphics.Color;
 import android.support.v7.app.AppCompatActivity;
@@ -16,6 +17,10 @@ import java.util.Collections;
 import java.util.List;
 
 public class QuizMain extends AppCompatActivity {
+    //Best practice to use the package name as the key-values
+    public static final String FINAL_SCORE = "com.example.group2.FINAL_SCORE";
+    public static final String FINAL_INCORRECT = "com.example.group2.FINAL_INCORRECT";
+
     private static final String TAG = "Quiz Main Screen";
 
     //Initialising the widgets
@@ -35,9 +40,11 @@ public class QuizMain extends AppCompatActivity {
     private int questionCounter;
     private int questionCountTotal;
     private Question currentQuestion;
+    private int incorrectAnswers;
 
     private int score;
     private boolean answered;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -167,6 +174,11 @@ public class QuizMain extends AppCompatActivity {
     }
 
     private void finishQuiz(){
+        incorrectAnswers = questionCountTotal - score;
+        Intent resultIntent = new Intent(this, ResultMain.class);
+        resultIntent.putExtra(FINAL_SCORE, score);
+        resultIntent.putExtra(FINAL_INCORRECT, incorrectAnswers);
+        startActivity(resultIntent);
         finish();
     }
 }

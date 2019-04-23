@@ -44,6 +44,18 @@
             android:text="Play Video" />
 
         <TextView
+            android:id="@+id/typeText"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Main Types of Consulting"
+            android:textSize="18sp"
+            android:textStyle="bold"
+            app:fontFamily="@font/open_sans"
+            android:padding="8dp"
+            android:textColor="#000000"
+            android:gravity="center_horizontal"/>
+
+        <TextView
             android:id="@+id/mgmtText"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -78,9 +90,72 @@
             android:id="@+id/techInfo"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Technology Consulting "
+            android:text="Technology Consulting assists in leveraging technology to enhance companies. It includes helping companies complete digital transformations, implementing new systems, and enforcing cyber security measures. \n\nExamples of Technology Consulting firms - Accenture, Capgemini and IR."
             android:textColor="#000000"
             android:padding="8dp"
             android:textSize="10sp" />
+
+        <TextView
+            android:id="@+id/opsText"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Operations Consulting"
+            android:textColor="#000000"
+            android:textStyle="bold"
+            android:paddingTop="8dp"
+            android:padding="8dp"
+            app:fontFamily="@font/open_sans"/>
+
+        <TextView
+            android:id="@+id/opsInfo"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Operations Consulting bolsters the internal efficiency within a company. The key function is to refine systems and processes of all levels to reduce resources. This is often directly linked with Management Consulting, as Operations Consulting looks at the back-end structures that allow the achievement of the goals. \n\nExamples of Operations Consulting firms - Partners in Performance (PiP) and the Big 4 Advisory Firms (Deloitte, KPMG, EY and PwC)."
+            android:textColor="#000000"
+            android:padding="8dp"
+            android:textSize="10sp"
+            app:fontFamily = "@font/open_sans"/>
+
+        <TextView
+            android:id="@+id/finsText"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Financial Consulting"
+            android:textColor="#000000"
+            android:textStyle="bold"
+            android:paddingTop="8dp"
+            android:padding="8dp"
+            app:fontFamily="@font/open_sans"/>
+
+        <TextView
+            android:id="@+id/finsInfo"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="8dp"
+            android:text="Financial Consulting handles the financial vision and standings of a company. It involves planning out the financial aspect of the business, such as managing investment, tax and expense strategies. \n\n Example of Financial Consulting firms - Oliver Wyman."
+            android:textColor="#000000"
+            android:textSize="10sp"
+            app:fontFamily="@font/open_sans"/>
+
+        <TextView
+            android:id="@+id/hrText"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Human Resources Consulting"
+            android:textColor="#000000"
+            android:textStyle="bold"
+            android:paddingTop="8dp"
+            android:padding="8dp"
+            app:fontFamily="@font/open_sans" />
+
+        <TextView
+            android:id="@+id/hrInfo"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="8dp"
+            android:text="Human Resources Consulting operate with matters concerning the employees of the company. It focuses on managing well-being and ensures the right people are in the right jobs. These human factors of the business can also impact overall profitability when managed correctly. \n\nExamples of HR Consulting firms - Randstand and ManpowerGroup."
+            android:textColor="#000000"
+            android:textSize="10sp"
+            app:fontFamily="@font/open_sans"/>
     </LinearLayout>
 </ScrollView>
