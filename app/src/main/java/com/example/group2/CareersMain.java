@@ -54,8 +54,7 @@ public class CareersMain extends AppCompatActivity {
 
         btn_bcg.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(View v) {
-                getWikiPage("Boston_Consulting_Group");
+            public void onClick(View v) {getWikiPage("Boston_Consulting_Group");
             }
         });
 
