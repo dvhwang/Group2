@@ -34,7 +34,7 @@ public class MainActivity extends AppCompatActivity {
                 Log.d(TAG, "onClick: learn imageView clicked");
                 Intent intent = new Intent(MainActivity.this, CareersMain.class);
                 startActivity(intent);
-                Log.d(TAG, "onClick: Consulting intent launched");
+                Log.d(TAG, "onClick: Careers intent launched");
             }
         });
 
@@ -49,6 +49,27 @@ public class MainActivity extends AppCompatActivity {
 
         });
 
+        framework.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Log.d(TAG, "onClick: learn imageView clicked");
+                Intent intent = new Intent(MainActivity.this, FrameworkMain.class);
+                startActivity(intent);
+                Log.d(TAG, "onClick: Framework intent launched");
+            }
+
+        });
+
+        consulting.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Log.d(TAG, "onClick: learn imageView clicked");
+                Intent intent = new Intent(MainActivity.this, ConsultingMain.class);
+                startActivity(intent);
+                Log.d(TAG, "onClick: Consulting intent launched");
+            }
+
+        });
 
 
         }
