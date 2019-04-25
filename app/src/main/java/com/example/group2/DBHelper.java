@@ -178,6 +178,7 @@ public class DBHelper extends SQLiteOpenHelper {
         ContentValues content = new ContentValues();
         Log.d(TAG, "Inserting High Scores");
         content.put(ResultTable.COLUMN_RESULT, score);
+        db.insert(ResultTable.TABLE_NAME, null, content);
     }
 
    public List<Float> getHighScores(){

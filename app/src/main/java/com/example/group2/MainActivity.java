@@ -10,7 +10,7 @@ import android.widget.Button;
 
 public class MainActivity extends AppCompatActivity {
 
-
+    Button quiz;
     Button consulting;
     Button careers;
     Button framework;
@@ -21,6 +21,7 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+        quiz = findViewById(R.id.quizIV);
         consulting = findViewById(R.id.consultingIV);
         careers = findViewById(R.id.careersIV);
         framework = findViewById(R.id.frameworkIV);
@@ -36,17 +37,16 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
+        quiz.setOnClickListener(new View.OnClickListener(){
+            @Override
+            public void onClick(View v){
+                Log.d(TAG, "onClick: Quiz Start button clicked");
+                Intent intent = new Intent(MainActivity.this, QuizMain.class);
+                startActivity(intent);
+                Log.d(TAG, "onClick: Quiz intent launched");
+            }
 
-//        Button btn = findViewById(R.id.button);
-//        btn.setOnClickListener(new View.OnClickListener(){
-//            @Override
-//
-//
-//
-//            public void onClick(View v){
-//                moveToQuiz();
-//            }
-
+        });
 
 
 
