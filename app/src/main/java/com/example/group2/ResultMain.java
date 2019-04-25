@@ -34,6 +34,9 @@ public class ResultMain extends AppCompatActivity {
     float[] pieScore;
     private String status[] = {"Correct", "Incorrect"};
     private int incorrectScore;
+    private TextView correctText;
+    private TextView incorrectText;
+    private TextView correctTitle;
     Button homeBtn;
    /* private float highestScore;
     private float secondHighestScore;
@@ -47,6 +50,9 @@ public class ResultMain extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_result_main);
+        correctText = findViewById(R.id.correctTextView);
+        incorrectText = findViewById(R.id.incorrectTextView);
+        correctTitle = findViewById(R.id.correctTitle);
 
 
         //Receives the final score from QuizMain
@@ -89,6 +95,10 @@ public class ResultMain extends AppCompatActivity {
         pieScore[1] = incorrectNo;
         setUpPieChart();
 
+        correctTitle.setText(Integer.toString(score));
+        correctText.setText(Integer.toString(score));
+        incorrectText.setText(Integer.toString(incorrectScore));
+
         homeBtn = findViewById(R.id.homeBtn);
         homeBtn.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -109,12 +119,12 @@ public class ResultMain extends AppCompatActivity {
     private void setUpPieChart(){
         List<PieEntry> pieEntry = new ArrayList<>();
         for (int i = 0; i < 2; i++){
-            pieEntry.add(new PieEntry(pieScore[i],status[i]));
+            pieEntry.add(new PieEntry(pieScore[i]));
         }
 
         //Adding the data into the Pie Chart and changing the colours of the chart
-        PieDataSet dataSet = new PieDataSet(pieEntry, "Quiz Results");
-        dataSet.setValueTextSize(40f);
+        PieDataSet dataSet = new PieDataSet(pieEntry, "");
+        dataSet.setValueTextSize(10f);
         int[] pieColours = {Color.rgb(135, 232, 17), Color.rgb(232, 57, 18)};
         dataSet.setColors(ColorTemplate.createColors(pieColours));
 
@@ -122,12 +132,12 @@ public class ResultMain extends AppCompatActivity {
 
         //Creating the Visual elements of the Pie Chart
         PieChart chart = findViewById(R.id.pieChart);
-        dataSet.setLabel("");
+        //dataSet.setLabel("");
         chart.setData(data);
         chart.animateY(1000);
-        chart.setEntryLabelTextSize(15f);
-        chart.setCenterTextSizePixels(20f);
-        chart.setHoleRadius(30f);
+        //chart.setEntryLabelTextSize(5f);
+        chart.setCenterTextSizePixels(10f);
+        chart.setHoleRadius(20f);
         chart.setTransparentCircleRadius(35f);
 
         //Resets the Pie Chart
