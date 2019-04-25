@@ -8,10 +8,16 @@ import android.database.sqlite.SQLiteOpenHelper;
 import android.util.Log;
 
 import com.example.group2.QuizContainer.*;
+import com.example.group2.ResultContainer.*;
 
 import java.util.ArrayList;
 import java.util.List;
 
+/*Modified Code from:
+Author: Coding in Flow
+Year: 2017
+Link: https://www.youtube.com/watch?v=5ISNPFmuOU8
+*/
 
 public class DBHelper extends SQLiteOpenHelper {
     private static final String DATABASE_NAME = "Question.db";
@@ -35,32 +41,34 @@ public class DBHelper extends SQLiteOpenHelper {
         final String SQL_CREATE_QUESTION_TABLE = "CREATE TABLE " +
                 QuestionTable.TABLE_NAME + " ( " +
                 QuestionTable._ID + " INTEGER PRIMARY KEY AUTOINCREMENT, " +
-                QuestionTable.COLUMN_QUESTION + " TEXT, " +
-                QuestionTable.COLUMN_OPTION1 + " TEXT, " +
-                QuestionTable.COLUMN_OPTION2 + " TEXT, " +
-                QuestionTable.COLUMN_OPTION3 + " TEXT, " +
-                QuestionTable.COLUMN_OPTION4 + " TEXT, " +
-                QuestionTable.COLUMN_ANSWER_NO + "INTEGER " +
+                QuestionTable.COLUMN_QUESTION + "TEXT, " +
+                QuestionTable.COLUMN_OPTION1 + "TEXT, " +
+                QuestionTable.COLUMN_OPTION2 + "TEXT, " +
+                QuestionTable.COLUMN_OPTION3 + "TEXT, " +
+                QuestionTable.COLUMN_OPTION4 + "TEXT, " +
+                QuestionTable.COLUMN_ANSWER_NO + "INTEGER" +
                 ")";
 
         //SQL query to create the Result table
         final String SQL_CREATE_RESULT_TABLE = "CREATE TABLE " +
-            ResultContainer.ResultTable.TABLE_NAME + " ( " +
-                ResultContainer.ResultTable._ID + " INTEGER PRIMARY KEY AUTOINCREMENT, "+
-                ResultContainer.ResultTable.COLUMN_RESULT + " INTEGER " + ")";
+                ResultTable.TABLE_NAME + " (" +
+                ResultTable._ID + "INTEGER PRIMARY KEY AUTOINCREMENT, "+
+                ResultTable.COLUMN_RESULT + " INTEGER " + ")";
 
         //To execute the SQL query above
         db.execSQL(SQL_CREATE_QUESTION_TABLE);
-        db.execSQL(SQL_CREATE_RESULT_TABLE);
 
         //Invoke method which will have all the question
         makeQuestions();
+
+        db.execSQL(SQL_CREATE_RESULT_TABLE);
     }
 
     //Updates the table, if there are changes made to the existing table
     @Override
     public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
         db.execSQL("DROP TABLE IF EXISTS " + QuestionTable.TABLE_NAME);
+        db.execSQL("DROP TABLE IF EXISTS " + ResultTable.TABLE_NAME);
         onCreate(db);
     }
 
@@ -166,26 +174,27 @@ public class DBHelper extends SQLiteOpenHelper {
         return questionList;
     }
 
-    public void insertHighScore(int score){
+    public void insertHighScore(float score){
         ContentValues content = new ContentValues();
         Log.d(TAG, "Inserting High Scores");
-        content.put(ResultContainer.ResultTable.COLUMN_RESULT, score);
+        content.put(ResultTable.COLUMN_RESULT, score);
     }
 
-    public List<Integer> getHighScores(){
-        List<Integer> scoreList = new ArrayList<>();
+   public List<Float> getHighScores(){
+        List<Float> scoreList = new ArrayList<>();
         Log.d(TAG, "Retrieving High Scores");
 
         db = getReadableDatabase();
 
         //To return the top 3 results from the Result Table in descending order
-        Cursor cursor = db.rawQuery("SELECT MAX(result) FROM " + ResultContainer.ResultTable.TABLE_NAME + " ORDER BY " + ResultContainer.ResultTable.COLUMN_RESULT + " DESC LIMIT 3", null);
+        Cursor cursor = db.rawQuery("SELECT * FROM " + ResultTable.TABLE_NAME, null);
 
         if (cursor.moveToFirst()){
             do {
-                scoreList.add(cursor.getInt(cursor.getColumnIndex(ResultContainer.ResultTable.COLUMN_RESULT)));
+                scoreList.add(cursor.getFloat(cursor.getColumnIndex(ResultTable.COLUMN_RESULT)));
             } while(cursor.moveToNext());
         }
+        cursor.close();
         return scoreList;
     }
 }

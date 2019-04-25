@@ -2,6 +2,12 @@ package com.example.group2;
 
 import android.provider.BaseColumns;
 
+/*Modified Code from:
+Author: Coding in Flow
+Year: 2017
+Link: https://www.youtube.com/watch?v=5ISNPFmuOU8
+*/
+
 //Container for the different constants required for the SQLite operations
 public final class QuizContainer {
 

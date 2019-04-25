@@ -16,6 +16,12 @@ import android.widget.Toast;
 import java.util.Collections;
 import java.util.List;
 
+/*Modified Code from:
+Author: Coding in Flow
+Year: 2017
+Link: https://www.youtube.com/watch?v=5ISNPFmuOU8
+*/
+
 public class QuizMain extends AppCompatActivity {
     //Best practice to use the package name as the key-values
     public static final String FINAL_SCORE = "com.example.group2.FINAL_SCORE";
@@ -40,8 +46,6 @@ public class QuizMain extends AppCompatActivity {
     private int questionCounter;
     private int questionCountTotal;
     private Question currentQuestion;
-    private int incorrectAnswers;
-
     private int score;
     private boolean answered;
 
@@ -51,7 +55,6 @@ public class QuizMain extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_quiz_main);
         Log.d(TAG, "Initialising the Quiz Layout");
-
         //Assigning the widgets to its corresponding XML widget
         textViewScore = findViewById(R.id.scoreText);
         textViewQuestionCount = findViewById(R.id.countText);
@@ -62,13 +65,13 @@ public class QuizMain extends AppCompatActivity {
         rb3 = findViewById(R.id.radioButton3);
         rb4 = findViewById(R.id.radioButton4);
         submitBtn = findViewById(R.id.submitBtn);
-
         textColorDefaultRb = rb1.getTextColors();
+
+        //Intent intent = getIntent();
 
         DBHelper dbHelper = new DBHelper(this);
         questionList = dbHelper.getAllQuestions();
         questionCountTotal = questionList.size();
-
         //Getting questions in a random order
         Collections.shuffle(questionList);
 
@@ -173,12 +176,20 @@ public class QuizMain extends AppCompatActivity {
         }
     }
 
+    //Finish the quiz and sending the scores to the result activity
     private void finishQuiz(){
-        incorrectAnswers = questionCountTotal - score;
-        Intent resultIntent = new Intent(this, ResultMain.class);
-        resultIntent.putExtra(FINAL_SCORE, score);
-        resultIntent.putExtra(FINAL_INCORRECT, incorrectAnswers);
-        startActivity(resultIntent);
-        finish();
+        int correct = score;
+        int incorrect = questionCountTotal - score;
+        Intent intent = new Intent(QuizMain.this, ResultMain.class);
+        intent.putExtra("Correct", correct);
+        intent.putExtra("Incorrect", incorrect);
+        startActivity(intent);
+
+        //incorrectAnswers = questionCountTotal - score;
+        //Intent resultIntent = new Intent(this, ResultMain.class);
+        //resultIntent.putExtra(FINAL_SCORE, score);
+        //resultIntent.putExtra(FINAL_INCORRECT, incorrectAnswers);
+        //finish();
+        //startActivity(resultIntent);
     }
 }

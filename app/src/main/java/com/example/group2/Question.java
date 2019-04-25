@@ -1,5 +1,11 @@
 package com.example.group2;
 
+/*Modified Code from:
+Author: Coding in Flow
+Year: 2017
+Link: https://www.youtube.com/watch?v=5ISNPFmuOU8
+*/
+
 public class Question {
     //Creating the variables
     private String question;
@@ -10,9 +16,7 @@ public class Question {
     private int answerNo;
 
     //Empty Constructor
-    public Question(){
-
-    }
+    public Question(){ }
 
     //Question Constructor
     public Question(String question, String option1, String option2, String option3, String option4, int answerNo) {
