@@ -65,6 +65,7 @@ public class FrameworkAdapter extends RecyclerView.Adapter<FrameworkAdapter.Fram
         holder.title.setText(framework.getName());
         holder.rowImage.setImageResource(framework.getListImage());
         holder.itemView.setTag(framework);
+        holder.itemView.setOnClickListener(onClickListener);
     }
 
     @Override
