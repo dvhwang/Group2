@@ -1,5 +1,6 @@
 package com.example.group2;
 
+import android.graphics.drawable.Drawable;
 import android.support.v4.app.Fragment;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -20,7 +21,6 @@ public class DetailFragment extends Fragment {
             framework = Framework.getFramework(getArguments().getString(ARG_ITEM_ID));
             this.getActivity().setTitle(framework.getName());
         }
-        //setContentView(R.layout.activity_detail_fragment);
     }
 
     @Override
@@ -28,7 +28,9 @@ public class DetailFragment extends Fragment {
         View rootView = inflater.inflate(R.layout.activity_detail_fragment, container, false);
 
         if(framework != null){
-            ((ImageView) rootView.findViewById(R.id.mainView)).setImageResource(framework.getDetailImage());
+            ImageView imageView = rootView.findViewById(R.id.mainView);
+            imageView.setImageResource(framework.getDetailImage());
+            //((ImageView)rootView.findViewById(R.id.mainView)).setImageResource(framework.getDetailImage());
         }
         return rootView;
     }
