@@ -60,7 +60,6 @@ public class DBHelper extends SQLiteOpenHelper {
         makeQuestions();
 
         db.execSQL(SQL_CREATE_RESULT_TABLE);
-
     }
 
     //Updates the table, if there are changes made to the existing table
@@ -169,7 +168,7 @@ public class DBHelper extends SQLiteOpenHelper {
                 questionList.add(question);
             } while(cursor.moveToNext()); //move to the next entry if there is an entry that exists on the first line
         }
-       // cursor.close();
+       //cursor.close();
         return questionList;
     }
 

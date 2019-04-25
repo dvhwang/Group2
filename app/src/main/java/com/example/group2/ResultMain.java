@@ -8,6 +8,7 @@ import android.os.Bundle;
 import android.widget.TextView;
 
 import com.github.mikephil.charting.charts.PieChart;
+import com.github.mikephil.charting.components.Description;
 import com.github.mikephil.charting.data.PieData;
 import com.github.mikephil.charting.data.PieDataSet;
 import com.github.mikephil.charting.data.PieEntry;
@@ -29,7 +30,7 @@ public class ResultMain extends AppCompatActivity {
     private int score;
     float[] pieScore;
     private String status[] = {"Correct", "Incorrect"};
-    private float incorrectScore;
+    private int incorrectScore;
    /* private float highestScore;
     private float secondHighestScore;
     private float thirdHighestScore;
@@ -78,7 +79,7 @@ public class ResultMain extends AppCompatActivity {
         //Changing Score to Float for Pie Chart
         pieScore = new float[2];
         float correctNo = (float) score;
-        float incorrectNo = incorrectScore;
+        float incorrectNo = (float) incorrectScore;
         pieScore[0] = correctNo;
         pieScore[1] = incorrectNo;
         setUpPieChart();
