@@ -33,7 +33,7 @@ public class ResultMain extends AppCompatActivity {
     private float highestScore;
     private float secondHighestScore;
     private float thirdHighestScore;
-    private List<Float> resultList;
+    private List<Integer> resultList;
 
     DBHelper dbHelper;
 
@@ -50,7 +50,9 @@ public class ResultMain extends AppCompatActivity {
         //Receive the number of incorrect answers from QuizMain
         incorrectScore = intent.getExtras().getInt("Incorrect");
 
-        //Checking to see if it has beaten any of the top 3 scores
+        sendScoretoDB(score);
+
+       /* //Checking to see if it has beaten any of the top 3 scores
         if (score >= highestScore){
             highestScore = score;
             sendScoretoDB(highestScore);
@@ -64,14 +66,14 @@ public class ResultMain extends AppCompatActivity {
         else if (score >= thirdHighestScore){
             thirdHighestScore = score;
             sendScoretoDB(thirdHighestScore);
-        }
+        }*/
 
         //Retrieving and assigning the high scores
         dbHelper = new DBHelper(this);
-        resultList = dbHelper.getHighScores();
-        highestScore = resultList.get(0);
+        //resultList = dbHelper.getHighScores();
+/*        highestScore = resultList.get(0);
         secondHighestScore = resultList.get(1);
-        thirdHighestScore = resultList.get(2);
+        thirdHighestScore = resultList.get(2);*/
 
         //Changing Score to Float for Pie Chart
         pieScore = new float[2];
@@ -83,7 +85,7 @@ public class ResultMain extends AppCompatActivity {
 
     }
 
-    public void sendScoretoDB(float score){
+    public void sendScoretoDB(int score){
         dbHelper = new DBHelper(this);
         dbHelper.insertHighScore(score);
     }

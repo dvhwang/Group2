@@ -174,15 +174,16 @@ public class DBHelper extends SQLiteOpenHelper {
         return questionList;
     }
 
-    public void insertHighScore(float score){
+    public void insertHighScore(int score){
+        db = getReadableDatabase();
         ContentValues content = new ContentValues();
         Log.d(TAG, "Inserting High Scores");
         content.put(ResultTable.COLUMN_RESULT, score);
         db.insert(ResultTable.TABLE_NAME, null, content);
     }
 
-   public List<Float> getHighScores(){
-        List<Float> scoreList = new ArrayList<>();
+   public List<Integer> getHighScores(){
+        List<Integer> scoreList = new ArrayList<>();
         Log.d(TAG, "Retrieving High Scores");
 
         db = getReadableDatabase();
@@ -192,7 +193,7 @@ public class DBHelper extends SQLiteOpenHelper {
 
         if (cursor.moveToFirst()){
             do {
-                scoreList.add(cursor.getFloat(cursor.getColumnIndex(ResultTable.COLUMN_RESULT)));
+                scoreList.add(cursor.getInt(cursor.getColumnIndex(ResultTable.COLUMN_RESULT)));
             } while(cursor.moveToNext());
         }
         cursor.close();
