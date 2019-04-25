@@ -141,7 +141,7 @@
         android:layout_marginRight="8dp"
         android:fontFamily="sans-serif"
         android:gravity="center_horizontal"
-        android:text="Student's Pocket Guide to \nConsulting"
+        android:text="A Student's Pocket Guide \nto Consulting"
         android:textColor="@color/white"
         android:textSize="12pt"
         android:textStyle="bold"

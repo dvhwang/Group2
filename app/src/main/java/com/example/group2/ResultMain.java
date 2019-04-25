@@ -5,6 +5,9 @@ import android.graphics.Color;
 import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.util.Log;
+import android.view.View;
+import android.widget.Button;
 import android.widget.TextView;
 
 import com.github.mikephil.charting.charts.PieChart;
@@ -31,12 +34,14 @@ public class ResultMain extends AppCompatActivity {
     float[] pieScore;
     private String status[] = {"Correct", "Incorrect"};
     private int incorrectScore;
+    Button homeBtn;
    /* private float highestScore;
     private float secondHighestScore;
     private float thirdHighestScore;
     private List<Integer> resultList;
 */
     DBHelper dbHelper;
+    private static final String TAG = "ResultMain";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -84,6 +89,16 @@ public class ResultMain extends AppCompatActivity {
         pieScore[1] = incorrectNo;
         setUpPieChart();
 
+        homeBtn = findViewById(R.id.homeBtn);
+        homeBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Log.d(TAG, "onClick: initialising moving back to home");
+                Intent intent = new Intent(ResultMain.this, MainActivity.class);
+                startActivity(intent);
+                Log.d(TAG, "Event launched back to home");
+            }
+        });
     }
 
     public void sendScoretoDB(int score){
