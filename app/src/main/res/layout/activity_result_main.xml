@@ -11,7 +11,11 @@
         android:id="@+id/pieChart"
         android:layout_width="251dp"
         android:layout_height="216dp"
-        tools:layout_editor_absoluteX="50dp"
-        tools:layout_editor_absoluteY="181dp"></com.github.mikephil.charting.charts.PieChart>
+        android:layout_marginStart="16dp"
+        android:layout_marginLeft="16dp"
+        app:layout_constraintStart_toStartOf="parent"
+        tools:layout_editor_absoluteY="40dp">
+
+    </com.github.mikephil.charting.charts.PieChart>
 
 </android.support.constraint.ConstraintLayout>

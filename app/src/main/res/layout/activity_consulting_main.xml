@@ -3,7 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/lightBlue">
+    android:background="#172B4D">
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -17,7 +17,7 @@
             android:layout_height="wrap_content"
             android:gravity="center_horizontal"
             android:text="What is Consulting?"
-            android:textColor="@color/black"
+            android:textColor="#ffffff"
             android:textSize="30sp"
             android:textStyle="bold"
             app:fontFamily="@font/open_sans" />
@@ -28,7 +28,7 @@
             android:layout_height="wrap_content"
             android:padding="8dp"
             android:text="Consulting is a business providing expert advice to a specific group of people (e.g. Company). The business is built around helping a group of people get to a certain goal they want to achieve(e.g. Profitability). If you are still confused about what Consulting is, watch the Youtube video below which will outline what Consulting is."
-            android:textColor="#000000"
+            android:textColor="#ffffff"
             android:textSize="10sp"
             app:fontFamily="@font/open_sans" />
 
@@ -53,17 +53,17 @@
             android:textStyle="bold"
             app:fontFamily="@font/open_sans"
             android:padding="8dp"
-            android:textColor="#000000"
+            android:textColor="#ffffff"
             android:gravity="center_horizontal"/>
 
         <TextView
             android:id="@+id/mgmtText"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Management Consulting"
-            android:textColor="#000000"
-            android:textStyle="bold"
             android:padding="8dp"
+            android:text="Management Consulting"
+            android:textColor="#FFAB00"
+            android:textStyle="bold"
             app:fontFamily="@font/open_sans" />
 
         <TextView
@@ -71,7 +71,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="Management Consulting focuses on the long-term vision of the company. It specialises in identifying ways to increase the company's overall profitability and market competitiveness. \n\nExamples of Manaagement Consulting firms - what is known as MBB (McKinsey &amp; Co, Bain &amp; Co and BCG"
-            android:textColor="#000000"
+            android:textColor="#ffffff"
             android:textSize="10sp"
             android:padding="8dp"
             app:fontFamily="@font/open_sans" />
@@ -80,11 +80,11 @@
             android:id="@+id/techText"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Technology Consulting"
-            android:textColor="#000000"
-            android:textStyle="bold"
-            android:paddingTop="8dp"
             android:padding="8dp"
+            android:paddingTop="8dp"
+            android:text="Technology Consulting"
+            android:textColor="#FFAB00"
+            android:textStyle="bold"
             app:fontFamily="@font/open_sans" />
 
         <TextView
@@ -92,7 +92,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="Technology Consulting assists in leveraging technology to enhance companies. It includes helping companies complete digital transformations, implementing new systems, and enforcing cyber security measures. \n\nExamples of Technology Consulting firms - Accenture, Capgemini and IR."
-            android:textColor="#000000"
+            android:textColor="#ffffff"
             android:padding="8dp"
             android:textSize="10sp" />
 
@@ -100,19 +100,19 @@
             android:id="@+id/opsText"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Operations Consulting"
-            android:textColor="#000000"
-            android:textStyle="bold"
-            android:paddingTop="8dp"
             android:padding="8dp"
-            app:fontFamily="@font/open_sans"/>
+            android:paddingTop="8dp"
+            android:text="Operations Consulting"
+            android:textColor="#FFAB00"
+            android:textStyle="bold"
+            app:fontFamily="@font/open_sans" />
 
         <TextView
             android:id="@+id/opsInfo"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="Operations Consulting bolsters the internal efficiency within a company. The key function is to refine systems and processes of all levels to reduce resources. This is often directly linked with Management Consulting, as Operations Consulting looks at the back-end structures that allow the achievement of the goals. \n\nExamples of Operations Consulting firms - Partners in Performance (PiP) and the Big 4 Advisory Firms (Deloitte, KPMG, EY and PwC)."
-            android:textColor="#000000"
+            android:textColor="#ffffff"
             android:padding="8dp"
             android:textSize="10sp"
             app:fontFamily = "@font/open_sans"/>
@@ -122,7 +122,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="Financial Consulting"
-            android:textColor="#000000"
+            android:textColor="#FFAB00"
             android:textStyle="bold"
             android:paddingTop="8dp"
             android:padding="8dp"
@@ -134,7 +134,7 @@
             android:layout_height="wrap_content"
             android:padding="8dp"
             android:text="Financial Consulting handles the financial vision and standings of a company. It involves planning out the financial aspect of the business, such as managing investment, tax and expense strategies. \n\n Example of Financial Consulting firms - Oliver Wyman."
-            android:textColor="#000000"
+            android:textColor="#ffffff"
             android:textSize="10sp"
             app:fontFamily="@font/open_sans"/>
 
@@ -143,7 +143,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="Human Resources Consulting"
-            android:textColor="#000000"
+            android:textColor="#FFAB00"
             android:textStyle="bold"
             android:paddingTop="8dp"
             android:padding="8dp"
@@ -155,7 +155,7 @@
             android:layout_height="wrap_content"
             android:padding="8dp"
             android:text="Human Resources Consulting operate with matters concerning the employees of the company. It focuses on managing well-being and ensures the right people are in the right jobs. These human factors of the business can also impact overall profitability when managed correctly. \n\nExamples of HR Consulting firms - Randstand and ManpowerGroup."
-            android:textColor="#000000"
+            android:textColor="#ffffff"
             android:textSize="10sp"
             app:fontFamily="@font/open_sans"/>
     </LinearLayout>
