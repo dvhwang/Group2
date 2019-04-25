@@ -20,7 +20,7 @@ Link: https://www.youtube.com/watch?v=5ISNPFmuOU8
 */
 
 public class DBHelper extends SQLiteOpenHelper {
-    private static final String DATABASE_NAME = "Question.db";
+    private static final String DATABASE_NAME = "Assessment.db";
     private static final int DATABASE_VERSION = 1;
     private static final String TAG = "DBHelper";
 
@@ -34,8 +34,8 @@ public class DBHelper extends SQLiteOpenHelper {
     //Called when DB is first created
     @Override
     public void onCreate(SQLiteDatabase db) {
+        Log.i(TAG, "onCreate: Creating Database");
         this.db = db;
-        Log.d(TAG, "onCreate: Creating Database");
 
         //SQL query to create the Question table
         final String SQL_CREATE_QUESTION_TABLE = "CREATE TABLE " +
@@ -57,10 +57,10 @@ public class DBHelper extends SQLiteOpenHelper {
 
         //To execute the SQL queries above
         db.execSQL(SQL_CREATE_QUESTION_TABLE);
+        makeQuestions();
+
         db.execSQL(SQL_CREATE_RESULT_TABLE);
 
-        //Invoke method which will have all the question
-        makeQuestions();
     }
 
     //Updates the table, if there are changes made to the existing table
@@ -127,8 +127,8 @@ public class DBHelper extends SQLiteOpenHelper {
 
     //Adds the questions into database
     private void insertQuestion(Question question){
-        ContentValues content = new ContentValues();
         Log.d(TAG, "Inserting the questions");
+        ContentValues content = new ContentValues();
 
         //To set which values belongs to which column
         content.put(QuestionTable.COLUMN_QUESTION, question.getQuestion());
