@@ -5,15 +5,16 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
+import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.Button;
 
 public class MainActivity extends AppCompatActivity {
 
-    Button quiz;
-    Button consulting;
-    Button careers;
-    Button framework;
+    ImageButton quiz;
+    ImageButton consulting;
+    ImageButton careers;
+    ImageButton framework;
     private static final String TAG = "MainActivity";
 
     @Override
