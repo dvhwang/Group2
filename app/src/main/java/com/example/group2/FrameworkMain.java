@@ -24,7 +24,7 @@ public class FrameworkMain extends AppCompatActivity {
         recyclerView.setHasFixedSize(true);
         RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(this);
         recyclerView.setLayoutManager(layoutManager);
-        RecyclerView.Adapter adapter = new FrameworkAdapter();
+        RecyclerView.Adapter adapter = new FrameworkAdapter(this, Framework.getFramework(), twoPane);
         recyclerView.setAdapter(adapter);
     }
 }
