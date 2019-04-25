@@ -41,27 +41,26 @@ public class DBHelper extends SQLiteOpenHelper {
         final String SQL_CREATE_QUESTION_TABLE = "CREATE TABLE " +
                 QuestionTable.TABLE_NAME + " ( " +
                 QuestionTable._ID + " INTEGER PRIMARY KEY AUTOINCREMENT, " +
-                QuestionTable.COLUMN_QUESTION + "TEXT, " +
-                QuestionTable.COLUMN_OPTION1 + "TEXT, " +
-                QuestionTable.COLUMN_OPTION2 + "TEXT, " +
-                QuestionTable.COLUMN_OPTION3 + "TEXT, " +
-                QuestionTable.COLUMN_OPTION4 + "TEXT, " +
-                QuestionTable.COLUMN_ANSWER_NO + "INTEGER" +
+                QuestionTable.COLUMN_QUESTION + " TEXT, " +
+                QuestionTable.COLUMN_OPTION1 + " TEXT, " +
+                QuestionTable.COLUMN_OPTION2 + " TEXT, " +
+                QuestionTable.COLUMN_OPTION3 + " TEXT, " +
+                QuestionTable.COLUMN_OPTION4 + " TEXT, " +
+                QuestionTable.COLUMN_ANSWER_NO + " INTEGER" +
                 ")";
 
         //SQL query to create the Result table
         final String SQL_CREATE_RESULT_TABLE = "CREATE TABLE " +
-                ResultTable.TABLE_NAME + " (" +
-                ResultTable._ID + "INTEGER PRIMARY KEY AUTOINCREMENT, "+
+                ResultTable.TABLE_NAME + " ( " +
+                ResultTable._ID + " INTEGER PRIMARY KEY AUTOINCREMENT, "+
                 ResultTable.COLUMN_RESULT + " INTEGER " + ")";
 
-        //To execute the SQL query above
+        //To execute the SQL queries above
         db.execSQL(SQL_CREATE_QUESTION_TABLE);
+        db.execSQL(SQL_CREATE_RESULT_TABLE);
 
         //Invoke method which will have all the question
         makeQuestions();
-
-        db.execSQL(SQL_CREATE_RESULT_TABLE);
     }
 
     //Updates the table, if there are changes made to the existing table
@@ -170,7 +169,7 @@ public class DBHelper extends SQLiteOpenHelper {
                 questionList.add(question);
             } while(cursor.moveToNext()); //move to the next entry if there is an entry that exists on the first line
         }
-        cursor.close();
+       // cursor.close();
         return questionList;
     }
 
@@ -196,7 +195,7 @@ public class DBHelper extends SQLiteOpenHelper {
                 scoreList.add(cursor.getInt(cursor.getColumnIndex(ResultTable.COLUMN_RESULT)));
             } while(cursor.moveToNext());
         }
-        cursor.close();
+        //cursor.close();
         return scoreList;
     }
 }

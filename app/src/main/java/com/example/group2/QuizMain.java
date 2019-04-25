@@ -55,6 +55,7 @@ public class QuizMain extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_quiz_main);
         Log.d(TAG, "Initialising the Quiz Layout");
+
         //Assigning the widgets to its corresponding XML widget
         textViewScore = findViewById(R.id.scoreText);
         textViewQuestionCount = findViewById(R.id.countText);
@@ -66,8 +67,6 @@ public class QuizMain extends AppCompatActivity {
         rb4 = findViewById(R.id.radioButton4);
         submitBtn = findViewById(R.id.submitBtn);
         textColorDefaultRb = rb1.getTextColors();
-
-        //Intent intent = getIntent();
 
         DBHelper dbHelper = new DBHelper(this);
         questionList = dbHelper.getAllQuestions();

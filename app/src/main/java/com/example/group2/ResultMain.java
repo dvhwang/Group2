@@ -30,11 +30,11 @@ public class ResultMain extends AppCompatActivity {
     float[] pieScore;
     private String status[] = {"Correct", "Incorrect"};
     private float incorrectScore;
-    private float highestScore;
+   /* private float highestScore;
     private float secondHighestScore;
     private float thirdHighestScore;
     private List<Integer> resultList;
-
+*/
     DBHelper dbHelper;
 
     @Override

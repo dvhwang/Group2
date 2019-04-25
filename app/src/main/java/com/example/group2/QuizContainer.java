@@ -11,6 +11,10 @@ Link: https://www.youtube.com/watch?v=5ISNPFmuOU8
 //Container for the different constants required for the SQLite operations
 public final class QuizContainer {
 
+    //Best Practice
+    private QuizContainer(){
+    }
+
     //Creating constant for the Question table
     //BaseColumns provides the id which will increment each time a new question is entered
     public static class QuestionTable implements BaseColumns {
