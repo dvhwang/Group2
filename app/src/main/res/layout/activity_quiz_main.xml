@@ -4,7 +4,6 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/questions"
     android:padding="16dp"
     tools:context=".QuizMain">
 
@@ -44,7 +43,7 @@
         android:layout_marginEnd="16dp"
         android:layout_marginRight="16dp"
         android:text="Score: 0"
-        android:textColor="@android:color/black"
+        android:textColor="#FFAB00"
         android:textSize="20sp"
         android:textStyle="bold"
         app:fontFamily="@font/open_sans"
@@ -54,12 +53,12 @@
     <RadioGroup
         android:id="@+id/radioGroup"
         android:layout_width="wrap_content"
-
         android:layout_height="wrap_content"
         android:layout_below="@+id/questionText"
-
         android:layout_marginTop="32dp"
+        android:layout_marginBottom="32dp"
         android:padding="20dp"
+        app:layout_constraintBottom_toTopOf="@+id/submitBtn"
         app:layout_constraintStart_toStartOf="@+id/guideline7"
         app:layout_constraintTop_toBottomOf="@+id/questionText">
 
@@ -68,6 +67,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
+            android:padding="8dp"
             android:text="RadioButton"
             android:textSize="17sp"
             android:textStyle="bold"
@@ -78,6 +78,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
+            android:padding="8dp"
             android:text="RadioButton"
             android:textSize="17sp"
             android:textStyle="bold"
@@ -88,6 +89,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
+            android:padding="8dp"
             android:text="RadioButton"
             android:textSize="17sp"
             android:textStyle="bold"
@@ -98,6 +100,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
+            android:padding="8dp"
             android:text="RadioButton"
             android:textSize="17sp"
             android:textStyle="bold"
@@ -111,7 +114,7 @@
         android:layout_alignParentStart="true"
         android:layout_alignParentLeft="true"
         android:layout_alignParentTop="true"
-        android:layout_marginTop="8dp"
+        android:layout_marginTop="24dp"
         android:padding="7dp"
         android:text="Question Placeholder"
         android:textColor="@android:color/black"
@@ -119,7 +122,7 @@
         android:textStyle="bold"
         app:fontFamily="@font/open_sans"
         app:layout_constraintStart_toStartOf="@+id/guideline7"
-        app:layout_constraintTop_toTopOf="@+id/guideline" />
+        app:layout_constraintTop_toBottomOf="@+id/scoreText" />
 
     <Button
         android:id="@+id/submitBtn"
@@ -127,7 +130,7 @@
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="8dp"
+        android:layout_marginBottom="24dp"
         android:background="#172B4D"
         android:padding="8dp"
         android:text="Submit Answer"
@@ -135,16 +138,9 @@
         android:textSize="18sp"
         android:textStyle="bold"
         app:fontFamily="@font/open_sans"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/guideline8" />
-
-    <android.support.constraint.Guideline
-        android:id="@+id/guideline"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        app:layout_constraintGuide_begin="170dp" />
+        app:layout_constraintStart_toStartOf="parent" />
 
     <android.support.constraint.Guideline
         android:id="@+id/guideline7"
@@ -152,13 +148,6 @@
         android:layout_height="wrap_content"
         android:orientation="vertical"
         app:layout_constraintGuide_begin="16dp" />
-
-    <android.support.constraint.Guideline
-        android:id="@+id/guideline8"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        app:layout_constraintGuide_begin="519dp" />
 
 
 </android.support.constraint.ConstraintLayout>
