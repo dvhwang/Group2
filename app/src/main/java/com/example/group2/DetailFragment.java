@@ -8,6 +8,11 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
+/*Modified Code from:
+Author: Julian Prester
+Year: 2019
+Link: https://github.com/INFS-3634/Beers
+ */
 
 public class DetailFragment extends Fragment {
     public static final String ARG_ITEM_ID = "item_id";

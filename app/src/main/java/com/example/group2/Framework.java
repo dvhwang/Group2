@@ -24,6 +24,7 @@ public class Framework {
         this.detailImage = detailImage;
     }
 
+    //Getter and Setter for Framework
     public String getId() {
         return id;
     }
@@ -71,6 +72,7 @@ public class Framework {
         return id;
     }
 
+    //List of frameworks
     public static ArrayList<Framework> getDummyFrameworks(){
         ArrayList<Framework> frameworks = new ArrayList<>();
         frameworks.add(new Framework("y8oeui", "MECEs",R.drawable.mece,R.drawable.frameworks_1));

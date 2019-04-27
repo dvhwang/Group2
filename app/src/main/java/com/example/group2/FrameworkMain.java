@@ -6,7 +6,7 @@ import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 
 public class FrameworkMain extends AppCompatActivity {
-
+    //Variable to store the
     private boolean twoPane;
 
     @Override
@@ -24,6 +24,8 @@ public class FrameworkMain extends AppCompatActivity {
         recyclerView.setHasFixedSize(true);
         RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(this);
         recyclerView.setLayoutManager(layoutManager);
+
+        //Creating Adapter and setting the adapter to the RecyclerView
         RecyclerView.Adapter adapter = new FrameworkAdapter(this, Framework.getDummyFrameworks(), twoPane);
         recyclerView.setAdapter(adapter);
     }

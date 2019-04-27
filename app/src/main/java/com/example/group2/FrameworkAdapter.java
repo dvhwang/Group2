@@ -12,14 +12,22 @@ import android.widget.TextView;
 
 import java.util.ArrayList;
 
+/*Modified Code from:
+Author: Julian Prester
+Year: 2019
+Link: https://github.com/INFS-3634/Beers
+ */
+
 public class FrameworkAdapter extends RecyclerView.Adapter<FrameworkAdapter.FrameworkViewHolder> {
     private FrameworkMain parentActivity;
     private ArrayList<Framework> mFrameworks;
     private boolean twoPane;
+
     private View.OnClickListener onClickListener = new View.OnClickListener(){
         @Override
         public void onClick(View view){
             Framework framework = (Framework) view.getTag();
+            //If two panes are invoked then append the detail fragment
             if(twoPane){
                 Bundle arguments = new Bundle();
                 arguments.putString(DetailFragment.ARG_ITEM_ID, framework.getId());
@@ -52,12 +60,14 @@ public class FrameworkAdapter extends RecyclerView.Adapter<FrameworkAdapter.Fram
         }
     }
 
+    //Inflating the view with our customised row
     @Override
     public FrameworkAdapter.FrameworkViewHolder onCreateViewHolder(ViewGroup parent, int viewType){
         View v = LayoutInflater.from(parent.getContext()).inflate(R.layout.framework_list_row, parent, false);
         return new FrameworkViewHolder(v);
     }
 
+    //Inserting the relevant widgets to the view based on the item stored on the Framework list
     @Override
     public void onBindViewHolder(FrameworkViewHolder holder, int position){
         Framework framework = mFrameworks.get(position);
@@ -67,6 +77,7 @@ public class FrameworkAdapter extends RecyclerView.Adapter<FrameworkAdapter.Fram
         holder.itemView.setOnClickListener(onClickListener);
     }
 
+    //Returning the number of items in the Framework list
     @Override
     public int getItemCount(){
         return mFrameworks.size();
