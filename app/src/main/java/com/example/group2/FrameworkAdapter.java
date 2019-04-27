@@ -49,6 +49,7 @@ public class FrameworkAdapter extends RecyclerView.Adapter<FrameworkAdapter.Fram
         this.twoPane = twoPane;
     }
 
+    //Adding the row contents to the ViewHolder
     public static class FrameworkViewHolder extends RecyclerView.ViewHolder {
         public TextView title;
         public ImageView rowImage;
