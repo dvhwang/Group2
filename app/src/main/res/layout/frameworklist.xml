@@ -3,4 +3,5 @@
     android:id="@+id/frameworkList"
     android:name="com.example.group2.mainFragment"
     android:layout_width="match_parent"
-    android:layout_height="match_parent" />
+    android:layout_height="match_parent"
+    android:background="#172B4D"/>

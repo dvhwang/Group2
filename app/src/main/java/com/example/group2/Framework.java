@@ -57,8 +57,8 @@ public class Framework {
     }
 
     //Method to return all the frameworks
-    public static Framework getFramework(String id){
-        for (Framework framework : getFramework()){
+    public static Framework getDummyFramework(String id){
+        for (Framework framework : getDummyFrameworks()){
             if (framework.getId().equals(id)){
                 return framework;
             }
@@ -71,7 +71,7 @@ public class Framework {
         return id;
     }
 
-    public static ArrayList<Framework> getFramework(){
+    public static ArrayList<Framework> getDummyFrameworks(){
         ArrayList<Framework> frameworks = new ArrayList<>();
         frameworks.add(new Framework("y8oeui", "MECEs",R.drawable.mece,R.drawable.frameworks_1));
         frameworks.add(new Framework("ufhi89", "Profitability Tree", R.drawable.tree, R.drawable.frameworks_3));

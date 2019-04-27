@@ -13,24 +13,24 @@ public class DetailFragment extends Fragment {
     public static final String ARG_ITEM_ID = "item_id";
     private Framework framework;
 
+    public DetailFragment(){}
+
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
         if(getArguments().containsKey(ARG_ITEM_ID)){
-            framework = Framework.getFramework(getArguments().getString(ARG_ITEM_ID));
+            framework = Framework.getDummyFramework(getArguments().getString(ARG_ITEM_ID));
             this.getActivity().setTitle(framework.getName());
         }
     }
-
+    //Inserting and creating the view for the Detail Activity/Fragment
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState){
         View rootView = inflater.inflate(R.layout.activity_detail_fragment, container, false);
 
         if(framework != null){
-            ImageView imageView = rootView.findViewById(R.id.mainView);
-            imageView.setImageResource(framework.getDetailImage());
-            //((ImageView)rootView.findViewById(R.id.mainView)).setImageResource(framework.getDetailImage());
+            ((ImageView)rootView.findViewById(R.id.mainView)).setImageResource(framework.getDetailImage());
         }
         return rootView;
     }

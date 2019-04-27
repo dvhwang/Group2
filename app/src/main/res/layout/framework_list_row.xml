@@ -13,8 +13,8 @@
 
         <ImageView
             android:id="@+id/frameworkImage"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_width="128dp"
+            android:layout_height="128dp"
             android:layout_marginStart="8dp"
             android:layout_marginLeft="8dp"
             android:layout_marginTop="8dp"
@@ -36,7 +36,7 @@
             android:layout_marginRight="8dp"
             android:layout_marginBottom="16dp"
             android:textAppearance="@style/TextAppearance.AppCompat.Subhead"
-            android:textColor="#000000"
+            android:textColor="#FFAB00"
             android:textStyle="bold"
             app:fontFamily="@font/open_sans"
             app:layout_constraintBottom_toBottomOf="parent"
